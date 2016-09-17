@@ -1,3 +1,5 @@
+
+
 md-content.md-default-theme {
   background-color: #eee;
 }
@@ -34,9 +36,17 @@ md-sidenav {
 }
 md-sidenav ng-md-icon {
   position: relative;
-  top: 5px;
+/*  top: 5px;*/
 }
 
 .user-avatar {
   border-radius: 99%;
+}
+.loginBox {
+  max-width:  90%;
+  width: 500px
+}
+
+.stretch input  {
+  width: 100%
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StarterApp">
+  <head>
+      <title>Store Keepers Login</title>
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+      <link rel="stylesheet" href="main.css" />
+  </head>
+  <body layout="row" >
+      
+      <div ng-controller="LoginCtrl" layout="column" layout-align="center center" layout-fill="layout-fill">
+      <div layout="column" class="loginBox md-whiteframe-z1">
+        <md-toolbar>
+          <h2 class="md-toolbar-tools"><span>Login</span></h2>
+        </md-toolbar>
+        <md-content layout="column" class="md-padding">
+          <md-input-container>
+            <label>EmailAddress</label>
+            <input type="email" ng-model="username"/>
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="password"/>
+          </md-input-container>
+          <div layout="row" layout-align="center center" style="padding-top:20px;">
+            <md-button class="md-raised md-primary">Login</md-button>
+            <div flex="flex"></div>
+            <md-button href="" md-no-ink="md-no-ink">Forgot Password</md-button>
+          </div>
+        </md-content>
+      </div>
+    </div>
+      
+      <script src="bower_components/jquery/dist/jquery.min.js" type="application/javascript"></script>
+      <script src="bower_components/jquery.ui/" type="application/javascript"></script>
+      <script src="bower_components/angular/angular.min.js" type="application/javascript"></script>
+      <script src="bower_components/angular-aria/angular-aria.min.js" type="application/javascript"></script>
+      <script src="bower_components/angular-animate/angular-animate.min.js" type="application/javascript"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" type="application/javascript"></script>
+      <script src="bower_components/angular-material/angular-material.min.js" type="application/javascript"></script>
+      <script src="bower_components/angular-material-icons/angular-material-icons.min.js" type="application/javascript"></script>
+      <script src="main.js" type="application/javascript"></script>
+  </body>
+</html>
