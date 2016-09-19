@@ -1,0 +1,27 @@
+
+
+<md-card flex-gt-sm="90" flex-gt-md="80">
+    <md-card-content>
+        <div flex-sm="100" flex-gt-sm="100" layout-sm="column">
+                <form name="contactForm" data-ng-submit="sendMail()" layout="column">
+                    <md-input-container>
+                        <label>Product Name</label>
+                        <input ng-model="NewProduct.Name" required>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Product Description</label>
+                        <textarea ng-model="NewProduct.Description" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+                    </md-input-container>
+ 
+                    <md-input-container>
+                        <label>Quantity</label>
+                        <input type="number" ng-model="NewProduct.Quantity" required>
+                    </md-input-container>
+                    <div layout="row" layout-sm="column">
+                        <md-button class="md-raised md-primary" ng-click="AddProduct()" >Add</md-button>
+                    </div>
+                    
+                </form>
+            </div>
+    </md-card-content>
+</md-card>

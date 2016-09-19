@@ -1,0 +1,91 @@
+<md-card flex-gt-sm="90" flex-gt-md="90">
+    <md-card-content>
+        <md-content flex layout="column" style="height:80vh;" layout-fill>
+            <md-tabs md-dynamic-height="true" md-border-bottom md-stretch-tabs="always" style="height:80vh;">
+                <md-tab label="Admin Users">
+                    <md-content class="md-padding" role="tabpanel">
+
+                        <!-- exact table from live demo -->
+                        <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+                            <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                                <tr md-row>
+                                    <th md-column md-order-by="Name"><span>User Name</span></th>
+                                    <th md-column md-order-by="Email" md-desc><span>Email</span></th>
+                                    <th md-column md-numeric><span></span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row md-select="dessert" ng-repeat="user in AdminUsers | filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                    <td md-cell>{{user.Name}}</td>
+                                    <td md-cell>{{user.Email}}</td>
+                                    <td md-cell>
+                                        <md-button class="md-warn" ng-click="DeleteProduct(product)">Delete</md-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{AdminUsers.length}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+
+                    </md-content>
+                </md-tab>
+                <md-tab label="Manager Users">
+                    <md-content class="md-padding" role="tabpanel">
+
+
+                        <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+                            <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                                <tr md-row>
+                                    <th md-column md-order-by="Name"><span>User Name</span></th>
+                                    <th md-column md-order-by="Email" md-desc><span>Email</span></th>
+                                    <th md-column md-numeric><span></span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row md-select="dessert" ng-repeat="user in ManagerUsers | filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                    <td md-cell>{{user.Name}}</td>
+                                    <td md-cell>{{user.Email}}</td>
+                                    <td md-cell>
+                                        <md-button class="md-warn" ng-click="DeleteProduct(product)">Delete</md-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{ManagerUsers.length}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+
+
+                    </md-content>
+                </md-tab>
+                <md-tab label="Store Keepers">
+                    <md-content class="md-padding" role="tabpanel">
+
+
+                        <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+                            <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                                <tr md-row>
+                                    <th md-column md-order-by="Name"><span>User Name</span></th>
+                                    <th md-column md-order-by="Email" md-desc><span>Email</span></th>
+                                    <th md-column md-numeric><span></span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row md-select="dessert" ng-repeat="user in StoreKeepers | filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                    <td md-cell>{{user.Name}}</td>
+                                    <td md-cell>{{user.Email}}</td>
+                                    <td md-cell>
+                                        <md-button class="md-warn" ng-click="DeleteProduct(product)">Delete</md-button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{PendingProductLists.length}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+
+
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </md-card-content>
+</md-card>
