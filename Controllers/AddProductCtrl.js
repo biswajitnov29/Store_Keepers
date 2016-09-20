@@ -1,15 +1,14 @@
-app.controller('AddProductsCtrl',['$scope','ShopkeeperService','$state',function($scope,ShopkeeperService,$state){
+app.controller('AddProductsCtrl',['$scope','ShopkeeperService','$state','$rootScope',function($scope,ShopkeeperService,$state,$rootScope){
     
     
-    
+    $rootScope.PageHeader="Add Product";
     $scope.InitializedObject=function(){
-        
         $scope.NewProduct={
+            "ID":"P"+ShopkeeperService.GetUniqueNumber(),
             "Name":"",
             "Description":"",
             "Quantity":0
         };
-        
     };
     
     $scope.AddProduct=function(){

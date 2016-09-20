@@ -1,5 +1,6 @@
-app.controller('ManageUsers', ['$scope', 'ShopkeeperService', function ($scope, ShopkeeperService) {
+app.controller('ManageUsers', ['$scope', 'ShopkeeperService','$rootScope', function ($scope, ShopkeeperService,$rootScope) {
     
+    $rootScope.PageHeader="Manage Users";
     $scope.AdminUsers=[];
     $scope.ManagerUsers=[];
     $scope.StoreKeepers=[];

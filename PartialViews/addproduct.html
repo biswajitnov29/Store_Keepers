@@ -1,24 +1,43 @@
 
 
-<md-card flex-gt-sm="90" flex-gt-md="80">
+<md-card flex-xs="100" flex-gt-xs="90">
     <md-card-content>
         <div flex-sm="100" flex-gt-sm="100" layout-sm="column">
-                <form name="contactForm" data-ng-submit="sendMail()" layout="column">
+                <form name="productForm" data-ng-submit="sendMail()" layout="column">
+                    <md-input-container>
+                        <label>Product ID</label>
+                        <input ng-model="NewProduct.ID" disabled>
+                    </md-input-container>
                     <md-input-container>
                         <label>Product Name</label>
-                        <input ng-model="NewProduct.Name" required>
+                        <input ng-model="NewProduct.Name" required name="name">
+                        <div ng-messages="productForm.name.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container flex>
                         <label>Product Description</label>
-                        <textarea ng-model="NewProduct.Description" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+                        <textarea ng-model="NewProduct.Description" md-maxlength="70" rows="2" md-select-on-focus name="description"></textarea>
+                        <div ng-messages="productForm.description.$error">
+                            <div ng-message="md-maxlength">
+                                Your description should not be longer than 70 characters 
+                            </div>
+                        </div>
                     </md-input-container>
  
                     <md-input-container>
                         <label>Quantity</label>
-                        <input type="number" ng-model="NewProduct.Quantity" required>
+                        <input type="number" ng-model="NewProduct.Quantity" required name="quantity">
+                        <div ng-messages="productForm.quantity.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                     </md-input-container>
                     <div layout="row" layout-sm="column">
-                        <md-button class="md-raised md-primary" ng-click="AddProduct()" >Add</md-button>
+                        <md-button class="md-raised md-primary" 
+                                   ng-click="AddProduct()" 
+                                   style="margin:0px;"
+                                   type="submit"
+                                   ng-disabled="productForm.$invalid">Add</md-button>
                     </div>
                     
                 </form>

@@ -1,6 +1,7 @@
 
-app.controller('ManageProducts',['$scope','ShopkeeperService',function($scope,ShopkeeperService){
+app.controller('ManageProducts',['$scope','ShopkeeperService','$rootScope',function($scope,ShopkeeperService,$rootScope){
     
+    $rootScope.PageHeader="Manage Products";
     $scope.ProductLists=[];
     $scope.PendingProductLists=[];
     $scope.GetProductList=function(){

@@ -1,31 +1,53 @@
 
 
-<md-card flex-gt-sm="90" flex-gt-md="80">
+<md-card flex-xs="100" flex-gt-xs="90">
     <md-card-content>
         <div flex-sm="100" flex-gt-sm="100" layout-sm="column">
-                <form name="contactForm" data-ng-submit="sendMail()" layout="column">
+                <form name="userForm" data-ng-submit="sendMail()" layout="column">
                     <md-input-container>
-                        <label>User Name</label>
-                        <input ng-model="NewUser.Name" type="text" required>
+                        <label>User ID</label>
+                        <input ng-model="NewUser.ID" disabled>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Name</label>
+                        <input ng-model="NewUser.Name" type="text" required name="name">
+                        <div ng-messages="userForm.name.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container flex>
                         <label>Email</label>
-                        <input ng-model="NewUser.Email" type="email" required>
+                        <input ng-model="NewUser.Email" type="email" required ng-pattern="/^.+@.+\..+$/" name="email">
+                        <div ng-messages="userForm.email.$error">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message='pattern'>
+                                Your email must be look like an e-mail address.
+                            </div>
+                        </div>
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>User Type</label>
-                        <md-select ng-model="NewUser.Type">
+                        <md-select ng-model="NewUser.Type" required name="type">
                           <md-option ng-repeat="usertype in UserTypes" value="{{usertype}}">
                             {{usertype.Name}}
                           </md-option>
                         </md-select>
+                        <div ng-messages="userForm.type.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                       </md-input-container>
                     <md-input-container>
                         <label>Password</label>
-                        <input type="password" ng-model="NewUser.Password" required>
+                        <input type="password" ng-model="NewUser.Password" required name="password">
+                        <div ng-messages="userForm.password.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
                     </md-input-container>
                     <div layout="row" layout-sm="column">
-                        <md-button class="md-raised md-primary" ng-click="AddUser()" >Add</md-button>
+                        <md-button class="md-raised md-primary" ng-click="AddUser()" 
+                                   style="margin:0px;"
+                                   type="submit"
+                                   ng-disabled="userForm.$invalid">Add</md-button>
                     </div>
                     
                 </form>

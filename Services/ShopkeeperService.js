@@ -1,6 +1,11 @@
 app.service('ShopkeeperService',['$q',function($q){
     
     
+    this.GetUniqueNumber=function(){
+        var generator=new IDGenerator();
+        return generator.generate();
+    };
+    
     this.GetProducts=function(){
         var list = JSON.parse(localStorage.getItem('AvailableProductList'));
         return list;
@@ -39,7 +44,7 @@ app.service('ShopkeeperService',['$q',function($q){
         var list = JSON.parse(localStorage.getItem('AvailableProductList'));
         
         var result = list.filter(function( obj ) {
-            return obj.Name == product.Name;
+            return obj.ID == product.ID;
         });
         
         var index=list.indexOf(result[0]);
