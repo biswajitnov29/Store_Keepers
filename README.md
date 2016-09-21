@@ -5,5 +5,5 @@ Store Keeper
 Run [dashboard.html](#) file in browser
 
 #Default Admin User
-Username:[admin@gmail.com]()
+Username:[admin@gmail.com]() \n
 Password:[Admin@1234]()
