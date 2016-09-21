@@ -35,6 +35,19 @@ app.config(['$mdThemingProvider', function ($mdThemingProvider) {
             Name: "Store Keeper"
         }
     ]);
+    var generator=new IDGenerator();
+    localStorage["UserList"]= JSON.stringify([
+        {
+            "ID":"U"+generator.generate(),
+            "Name":"Default Admin",
+            "Email":"admin@gmail.com",
+            "Password":Base64.encode("Admin@1234"),
+            "Type":{
+                Id: "Admin",
+                Name: "Admin"
+            }
+        }
+    ]);
 
 
 }]);

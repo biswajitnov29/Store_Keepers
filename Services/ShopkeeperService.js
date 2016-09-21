@@ -73,7 +73,10 @@ app.service('ShopkeeperService',['$q',function($q){
             userList=new Array();
         }
         angular.forEach(userList, function(value, key) {
-            value.Type=JSON.parse(value.Type);
+            if(typeof(value.Type)!="object"){
+                value.Type=JSON.parse(value.Type);
+            }
+            
         });
         return userList;
     };
